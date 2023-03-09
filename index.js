@@ -2,7 +2,9 @@
 
 var express = require('express');
 var app = express();
-//app.use(express.static('tähän se kansion nimi'));
+
+//Sisällöt public-hakemiston alta
+app.use(express.static('./public'));
 
 app.get('/', function(req, res) {
     res.send('This is lovely');
