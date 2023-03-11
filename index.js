@@ -21,7 +21,7 @@ app.get('/ajaxmessage', function(req, res) {
 
 //Aattelin että joku error-setti olis hyvä?
 app.get("*", function (req, res) {
-    res.send("Can not find the requested page", 404);
+    res.send("Nyt ei kyllä tällaista löydy olelnkaan", 404);
 });
 
 app.listen(8081, function() {
