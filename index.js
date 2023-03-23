@@ -1,4 +1,3 @@
-//GUESTBOOKIN INDEX. IHa vaa jotta muistat
 
 var express = require('express');
 var app = express();
@@ -11,17 +10,18 @@ app.get('/', function(req, res) {
 });
 app.get('/guestbook', function(req, res) {
     res.send('Huh huh nimittäin ihan mieletön vieraskirja');
-})
+});
+/*Taru miten tän saa näyttämään sen lomakkeen?*/
 app.get('/newmessage', function(req, res) {
     res.send('You have one new message');
-})
+});
 app.get('/ajaxmessage', function(req, res) {
     res.send('Litti on kingi ja Kluivert on kurko');
-})
+});
 
-//Aattelin että joku error-setti olis hyvä?
+//Error-setti
 app.get("*", function (req, res) {
-    res.send("Nyt ei kyllä tällaista löydy olelnkaan", 404);
+    res.send("Nyt ei kyllä tällaista löydy ollenkaan", 404);
 });
 
 app.listen(8081, function() {
