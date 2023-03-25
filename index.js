@@ -25,11 +25,10 @@ app.get('/', function(req, res) {
 //No täl se pitäis tulla se taulukko?
 app.get('/guestbook', function(req, res) {
     res.sendFile(__dirname + '/public/guestbook.html');
-});
-
-
       var data = require(__dirname + '/public/data/data.json');
-      var results = '<table class="table-info">';
+
+//Parse the results into a variable
+      var results = '<table>';
 
       for (var i = 0; i < data.length; i++) {
             results +=
@@ -40,53 +39,52 @@ app.get('/guestbook', function(req, res) {
                 '<td>' + data[i].date + '</td>' +
                 '<td>' + data[i].message + '</td>' +
             '</tr>';
+      
+    }
+      
+    res.send(results);
+    });
 
-    /* Tässä on noi bootsrapit mukana, mut ei toimi. Huom. myös table-tägissä
-            '<tr class="table-info">' +
-                '<td class="table-info">' + data[i].id + '</td>' +
-                '<td class="table-info">' + data[i].username + '</td>' +
-                '<td class="table-info">' + data[i].country + '</td>' +
-                '<td class="table-info">' + data[i].date + '</td>' +
-                '<td class="table-info">' + data[i].message + '</td>' +
-            '</tr>';
-    */        
-      }
-      res.send(results);
-//TARU TUO RES NYT HERJAA, ETTÄ EI OO MÄÄRITELTY. KEKSI JOTAIN. ONKS AALTOSULKEET OIKEIS KOHDISSA?
-
-     //res.sendFile(__dirname + '/public/guestbook.html');
-//    res.sendFile(__dirname + '/public');
-//}); no nyt tää halus nää piiloon ku yritin tota guestbook-formia saada
 
 //----------------------NEW MESSAGE-------------------------------------
-/*Taru tällä pitäis saada näkymään se lomake*/
+//Serve a fom to the user
 app.get('/newmessage', function(req, res) {
     res.sendFile(__dirname + '/public/newmessage.html');
 });
 
-//TARU TÄSSÄ ALLA ON NYT VAA SUORAAN PUSHATTU TIETOA, KORJAA SILLEEN ETTÄ LOMAKE U KNOW
+//Route for form sending the POST data
+app.post('/newmessage', function (req, res) {
 // Load the existing data from a file TARVIIKO OLLA TOI DIRNAME?
 var data = require(__dirname + '/public/data/data.json');
 
-//Create new JSON object and add it to data
+/*tätäkö ei nyt sitte tässä käytetä hä?
+    var data="";
+    data += req.body.username + "\n";
+    data += req.body.country + "\n";
+    data += req.body.message + "\n";
+console.log(data);
+res.send(data);
+})
+*/
+
 data.push({
     "id": data.length + 1,
-    "username": "Mike Patton",
-    "country": "Neverland",
-    "date": Date(),
-    "message": "Pakko joraa"
+    "username": req.body.username,
+    "country": req.body.country,
+    "date": new Date(),
+    "message": req.body.message
 });
+
 //Convert JSON object to string format
 var jsonStr = JSON.stringify(data);
 
 //Write data to a file
 fs.writeFile('./public/data/data.json', jsonStr, (err) => {
     if (err) throw err;
-    console.log('I did it, I saved it.');
+    console.log('This is the way.');
 });
-    
-// lisää tää sit jotenki, kai?    res.send('You have one new message');
-//otin pois ku herjas});
+res.send("I have successfully saved your message and the world.");    
+});
 
 //----------------------AJAX--------------------------------------------
 app.get('/ajaxmessage', function(req, res) {
@@ -97,9 +95,8 @@ app.get('/ajaxmessage', function(req, res) {
 //-----------------------ERROR------------------------------------------
 //Error-setti
 app.get("*", function (req, res) {
-    res.send("Nyt ei kyllä tällaista löydy ollenkaan", 404);
+    res.status(404).send("Nyt ei kyllä tällaista löydy ollenkaan");
 });
-
 
 //-----------------------PORT--------------------------------------------
 app.listen(8081, function() {
