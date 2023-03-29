@@ -18,22 +18,24 @@
 <table class="table table-info table-striped-columns">
     <thead>
         <tr class="table-info">
-            <th scope="col" class="table-info">#</th>
-            <th scope="col" class="table-info">Username</th>
-            <th scope="col" class="table-info">Country</th>
-            <th scope="col" class="table-info">Date</th>
-            <th scope="col" class="table-info">Message</th>
+            <th scope="col" class="table-info" data-field="id">#</th>
+            <th scope="col" class="table-info" data-field="username">Username</th>
+            <th scope="col" class="table-info" data-field="country">Country</th>
+            <th scope="col" class="table-info" data-field="date">Date</th>
+            <th scope="col" class="table-info" data-field="message">Message</th>
         </tr>
     </thead>     
-<!--25.3. ALLA ALKUPERÄINEN VERSIO, KOKEILIN ANTAA NIMET NOILLE TH-TÄGEILLE MUT EI AUTTANU-->
+<!--29.3. ALLA ALKUPERÄINEN VERSIO, kokeilen data-fieldillä (oli namet) myös ylle.-->
+
+<!--29.3. laitan tän piiloon, jospa sit
     <tr class="table-info">
-        <td class="table-info" name="id"></td>
-        <td class="table-info" name="username"></td>
-        <td class="table-info" name="country"></td>
-        <td class="table-info" name="date"></td>
-        <td class="table-info" name="message"></td>
+        <td class="table-info" data-field="id"></td>
+        <td class="table-info" data-field="username"></td>
+        <td class="table-info" data-field="country"></td>
+        <td class="table-info" data-field="date"></td>
+        <td class="table-info" data-field="message"></td>
     </tr>
-     
+-->    
     
 <!--   <tr class="table-info">
         <td class="table-info">data[i].id</td>

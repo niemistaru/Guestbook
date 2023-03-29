@@ -5,6 +5,7 @@ var app = express();
 
 //Require the module required for using form data
 var bodyParser = require('body-parser');
+const { json } = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
 
@@ -32,14 +33,25 @@ app.get('/guestbook', function(req, res) {
 
       for (var i = 0; i < data.length; i++) {
             results +=
+
+            /*
             '<tr>' +
-                '<td>' + data[i].id + '</td>' +
+                '<th>' + data[i].id + '</th>' +
+                '<th>' + data[i].username + '</th>' +
+                '<th>' + data[i].country + '</th>' +
+                '<th>' + data[i].date + '</th>' +
+                '<th>' + data[i].message + '</th>' +
+            '</tr>';
+*/
+    //KOKEILIN TH-TÄGILLÄ YLLE - siitä tuli vain lihavoituna noi kaikki.
+            '<tr>' +
+                '<th>' + data[i].id + '</td>' +
                 '<td>' + data[i].username + '</td>' +
                 '<td>' + data[i].country + '</td>' +
                 '<td>' + data[i].date + '</td>' +
                 '<td>' + data[i].message + '</td>' +
             '</tr>';
-      
+    
     }
       
     res.send(results);
@@ -54,7 +66,7 @@ app.get('/newmessage', function(req, res) {
 
 //Route for form sending the POST data
 app.post('/newmessage', function (req, res) {
-// Load the existing data from a file TARVIIKO OLLA TOI DIRNAME?
+// Load the existing data from a file
 var data = require(__dirname + '/public/data/data.json');
 
 /*tätäkö ei nyt sitte tässä käytetä hä?
@@ -75,8 +87,10 @@ data.push({
     "message": req.body.message
 });
 
+
 //Convert JSON object to string format
 var jsonStr = JSON.stringify(data);
+
 
 //Write data to a file
 fs.writeFile('./public/data/data.json', jsonStr, (err) => {
