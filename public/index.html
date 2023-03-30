@@ -9,33 +9,179 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
  
  <!--OMAT TYYLIT TÄMÄN ALLE-->
-
+<link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-    <!--NAVIGAATIO-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <!---------------NAVIGAATIO----------------------------->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navi">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="index.html"><img src=booklogo.png alt="Guestbook logo" width="80"></a>
+          <!--voikohan tän alla olevan poistaa kokonaan, siinä oli Navbar-teksti-->
+          <a class="navbar-brand" href="#"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Guestbook</a>
-              <a class="nav-link" href="#">New Message</a>
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link" href="guestbook.html">Guestbook</a>
+              <a class="nav-link" href="newmessage.html">New Message</a>
               <a class="nav-link disabled">Ajax</a>
             </div>
           </div>
         </div>
-      </nav>
+    </nav>
 
-   
-    <div>
-        <h1>Magnificent Guestbook</h1>
-        <form action="">
-    </div>
-    </form>
+<!----------------MAIN------------------------------------->
+  
+  
+    <!---TÄSTÄ ALKAA SMAGGEKOODI----------------------------------------------->
+<!--HEDARI-->
+<header class="kuvahedari">
+  <h1 class="hedarifontti">SMAGARDI</h1>
+</header>
+
+<!---MAINTSYDEEMI-->
+<div id="page-container">
+    <main>
+
+      <div class="container">
+        <h1 class="paaotsikko">Kirja-arviot</h1>
+        <p class="ingressi">Eli mitä me tykkäämme tai emme tykkää.</p>
+
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <img class="arviokuva" src="Kuvat/vegetaristi.JPG" alt="Vegetaristi">
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <h2 class="arvio-otsikko">Han Kang: Vegetaristi</h2>
+            <p class="arvioteksti">Ah, ystävät, sitten kun sammun pois,
+            niin halava haudalle tuokaa!
+            Sen kyynel-lehvikko lempeä ois,
+            se hopeakielillä huokaa,
+            sen itkeä ylläni suokaa:
+            sijan pehmeän siimes sois!
+            Oli ilta, me kahden, vaieten viereensä hiivin,
+            pää immen vaipui ja haaveillen soittimen yllä
+            kävi kätensä valkea vienolla hyväilyllä
+            ladellen kuiskehen lailla silkkisin siivin
+            kuin iltatuuli, mi heijaa kaislojen terää,
+            niin hiljaa, hiljaa, ettei lintukaan herää.
+            Ja hekkuma murheen-raskas leutojen öiden
+            kaikk' kahlitsi, nurmikentät ja kukkien ummut,
+            se taivutti oksat tammien vankkavöiden
+            ja kyynelhelmiin hellytti laaksot ja kummut.
+            Yö äänetön ympäröi meidät ja akkunasta
+            tuli kevään henkäys tuoksuja tulvillaan,
+            me istuimme synkkinä, kahden, kaksi lasta,
+            surumietteissä suurissa viistoistavuotiaan.
+
+          </p>
+
+          </div>
+
+        </div>
+        <div class="row">
+
+          <div class="col-sm-12 col-lg-6">
+            <h2 class="arvio-otsikko">Jonas Hassen Khemiri: Isän säännöt</h2>
+
+            <p class="arvioteksti">Pyhä tuntematon on huokaus lapsen huulen,
+            se on hurskasta häivää, ihmettä ilman tuulen,
+            niin raskas ja hempee kuin on syyttömän syön.
+            Vain katse, vain kyynel, vain povi, mi hyrskien sykkää,
+            muu kaikki on salaisuutta ja aatosta mykkää
+            kuin arvoitus aaltojen, aarniometsän ja yön.
+            Me istuimme kahden, ma käännyin Lucian puoleen,
+            Suli sävelten mainingeissa mielemme jää,
+            ja rintaani vasten painui raueten huoleen
+            Desdemonan tuskia tunteva lapsen pää.
+            Ma sääliin särkyen itkusi äänen kuulin,
+            se huulillesi huuleni hiljaa vei.
+            Sun tuskasi suudelmaani hylkinyt ei:
+            se otti sen vastaan kylmin, kalvahin huulin.
+            Näin kuuta kaksi sa kalpenit, morsioks maan,
+            se poveensa silloin liljan valkean peitti,
+            ja hymyten henkesi majansa matalan heitti:
+            olit korkean taivaan enkeliks luotu vaan.</p>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+            <img class="arviokuva" src="Kuvat/khemiri.jpg" alt="Isän säännöt">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-lg-6">
+            <img class="arviokuva" src="Kuvat/anyuru.jpg" alt="He hukkuvat äitiensä kyyneliin">
+              </div>
+            <div class="col-sm-12 col-lg-6">
+            <h2 class="arvio-otsikko">Johannes Anyuru: He hukkuvat äitiensä kyyneliin</h2>
+            <p class="arvioteksti">Pyhä puhtoisuus, se kellä on enää, kellä?
+            Ja lapsen lempi, lapsen nauru ja laulu?
+            Sa viattomuuden valtavan valkea taulu,
+            mi pidätit Faustin Gretchenin kynnyksellä,
+            ah, ei sua enää morsius-suojissa näy!
+            Nuku rauhassa, laps, helinään laulusi lempeen.
+            Uni uuvutti kesken kätesi kuultavan hempeen;
+            suvi-öinä se soittimen yllä ei enää käy.
+            Ah, ystävät, sitten kun sammun pois,
+            niin halava haudalle tuokaa!
+            Sen kyynel-lehvikko lempeä ois,
+            se hopeakielillä huokaa,
+            sen itkeä ylläni suokaa:
+            sijan pehmeän siimes sois!</p>
+            <br>
+            <p class="arvioteksti">[Sivun täyteteksti tähän asti: Alfred de Musset: <em>Lucia</em> (suom. L. Onerva)]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-lg-6">
+          <h2 class="arvio-otsikko">Jennifer Clement: Rakkaudesta aseisiin</h2>
+          <p class="arvioteksti">Päivä oli jo niin matalalla kuin ennen muinoin Turussa siihen aikaan, jolloin tyhjät punssitynnyrit vappukentällä kehottivat meitä ajattelemaan kotimatkaa, mutta minulla oli vielä puolentoista peninkulman matka Hämeenlinnaan. Vaikka olinkin väsynyt, kuljin kuitenkin pysähtymättä noin peninkulman matkan ja olisin varmaankin poikennut johonkin talonpoikaistaloon yöksi, ellen kievarinisännän vuoksi olisi ollut suuttunut jokikiseen talonpoikaan. Sitäpaitsi oli tulet jo sammutettu niissä paikoin, joiden ohitse tieni kulki, ja pelkäsin että minua olisi voitu luulla rosvoksi, jos noin yöllä olisin kolkuttanut heidän ovelleen. Sinun tulee muistaa, että tämän seudun kyliä senlaiset vieraat joskus käyvät tervehtimässä. Pitikö minun siis mennä kaupunkiin? Mutta kuka siellä keskellä yötä antaisi minulle majaa?</p>
+          <br>
+          <p class="arvioteksti">[Ote Elias önnrotin matkapäiväkirjasta 1828 (suom. J. Hahl)]</p>
+        </div>
+        <div class="col-sm-12 col-lg-6">
+          <img class="arviokuva" src="Kuvat/clement.jpg" alt="Rakkaudesta aseisiin">
+        </div>
+      </div>
+
+    </main>
+  
+
+    <aside class="sivupalkki">
+      <h5 class="ehdokasotsikko">Kirjaehdokkaat</h5>
+      <img class="marginauto" src="Kuvat/smagardi.png" alt="Smagge" width="40">
+
+      <p class="asideteksti">Seuraavaksi aiomme jättää lukematta:</p>
+      <ul class="smaggelista">
+        <li class="pikkuli">Platon: Valtio</li>
+        <li class="pikkuli">Virginia Woolf: Mrs Dolloway</li>
+        <li class="pikkuli">Richard Adams: Ruohometsän typet</li>
+        <li class="pikkuli">Biblia 1642</li>
+        <li class="pikkuli">Neiti Etsivä ja joku ihan hirvee arvoitus</li>
+        <li class="pikkuli">Mikko Rimminen: Pussikaljaromaani</li>
+        <li class="pikkuli">Charles Dickens: Oliver Twisteri</li>
+        <li class="pikkuli">Tuomas Kyrö: Kerjäläinen ja pupu</li>
+        <li class="pikkuli">Franken Stein</li>
+      </ul>
+
+    </aside>
+  </div>
+   <footer>
+  <p class="footerteksti"> Emme vastaa mistään. Mitään.
+  </p>
+</footer>
+
+
+
+
+
+
+
+  
     <!--BOOTSTRAP-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   

@@ -1,0 +1,114 @@
+.paaotsikko {
+    margin-top: 30px;
+    margin-bottom: 45px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .ingressi {
+    text-align: center;
+    margin-bottom: 45px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .arviokuva {
+    padding: 30px;
+    width: 100%;
+    min-width: 300px;
+    max-width: 450px;
+    border-radius: 3pc;
+    margin-top: 10px;
+  }
+  .arvio-otsikko {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .arvioteksti {
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+  
+  }
+  .ehdokasotsikko {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  /*************************SMAGGE-FOOTER**************************/
+  footer {
+    background-color: #011638;
+    padding: 20px;
+  }
+  .footerteksti {
+    text-align: center;
+    color: #b8c5d6;
+    font-size: 12px !important;
+  }
+  
+  
+  /*INDEX*/
+body {
+    background-color: #C688CB; 
+}
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    
+}
+
+/*---------------SMAGARDI-KOODI--------------------------*/
+.hedarifontti {
+    font-family: 'Oswald', sans-serif;
+    font-size: 64px;
+    border-bottom: 13px solid #011638;
+    letter-spacing: 5px;
+  }
+  .kuvahedari {
+    background: url(Kuvat/hedari2.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    color: #011638;
+    text-align: left;
+    border-bottom: 36px solid #011638;
+  }
+
+
+
+
+
+/*NAVI*/
+#navi {
+    background-color: #950E9F !important;
+    margin-bottom: 40px;
+}
+
+
+
+/* NEW MESSAGE*/
+.form {
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-width: 350px;
+
+}
+.input-group-text {
+    background-color: #950E9F;
+}
+#messageField {
+    min-height: 150px;
+}
+#submitMessage{
+    margin-top: 10px;
+}
+
+/*  GUESTBOOK  */
+#table {
+    padding: 20px; 
+}
