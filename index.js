@@ -8,8 +8,11 @@ var bodyParser = require('body-parser');
 const { json } = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
+//Port
+const PORT = process.env.PORT || 3000;
+//var http = require('http');
 
-//vois olla myös const port = portinnumero;
+
 //Sisällöt public-hakemiston alta
 app.use(express.static('./public'));
 
@@ -113,6 +116,6 @@ app.get("*", function (req, res) {
 });
 
 //-----------------------PORT--------------------------------------------
-app.listen(8081, function() {
-    console.log('KGB kuuntelee porttia 8081');
+app.listen(PORT, function() {
+    console.log('Server is listening to port ' + PORT);
 });
