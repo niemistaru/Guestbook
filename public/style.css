@@ -9,12 +9,6 @@
     background-color: #C688CB; 
 }
 
-/********TARU MUOKKAA TÄTÄ, TÄÄ SE ALKUPERÄINEN, LAITA ID ETTÄ OSUU NEW MESSAGEEN OIKEIN (alla smagge-h1)*/
-h1 {
-    text-align: center;
-    margin-top: 30px;
-    
-}
 
 .hedarifontti {
     font-family: 'Oswald', sans-serif;
@@ -62,7 +56,7 @@ h1 {
     font-family: 'BioRhyme', serif;
     text-align: left;
   }
-  p {
+  p, label, span, a {
     font-family: 'Space Mono', monospace;
   }
   .pikkuli {
@@ -181,6 +175,11 @@ h1 {
   
  
 /********************** NEW MESSAGE**************************/
+#newM {
+    font-family: 'BioRhyme', serif;
+    text-align: center;
+    margin-top: 30px;  
+}
 .form {
     text-align: center;
     margin-left: 10%;
