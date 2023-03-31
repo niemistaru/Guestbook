@@ -49,7 +49,7 @@ app.get('/guestbook', function(req, res) {
 */
     //KOKEILIN TH-TÄGILLÄ YLLE - siitä tuli vain lihavoituna noi kaikki.
             '<tr>' +
-                '<th>' + data[i].id + '</td>' +
+                '<td>' + data[i].id + '</td>' +
                 '<td>' + data[i].username + '</td>' +
                 '<td>' + data[i].country + '</td>' +
                 '<td>' + data[i].date + '</td>' +
@@ -73,15 +73,6 @@ app.post('/newmessage', function (req, res) {
 // Load the existing data from a file
 var data = require(__dirname + '/public/data/data.json');
 
-/*tätäkö ei nyt sitte tässä käytetä hä?
-    var data="";
-    data += req.body.username + "\n";
-    data += req.body.country + "\n";
-    data += req.body.message + "\n";
-console.log(data);
-res.send(data);
-})
-*/
 
 data.push({
     "id": data.length + 1,
@@ -112,63 +103,48 @@ app.get('/ajaxmessage', function(req, res) {
     res.sendFile(__dirname + '/public/ajaxmessage.html');
 });
 
-    //KUULUISKO YLLÄ OLEVIEN OLLA VASTA ALMEPANA??
 
-//SIIRSIN NÄMÄ JUST TÄNNE MINÄ EN TIEDÄ MISSÄ JÄKRÄSSÄ NÄIDEN KUULUU OLLA HÄ
-//nodeen ei saa window'ta määritettyä ni mä nyt kokeilen jotain ihan muuta ku en tajuu. eli laitan piiloon
-/*
-
-    
-*/
 app.post('/ajaxmessage', function(req, res) {
-
+   //Load the existing data from a file
     var data = require(__dirname + '/public/data/data.json');
     console.log(req.body);
-    var id= data.length + 1;
-    var username= req.body.username;
-    var country= req.body.country;
-    var date= new Date();
-    var message= req.body.message;
-
-    //Convert JSON object to string format
-    var jsonStr = JSON.stringify(data);
-    //Send variable as string
-    res.send(JSON.stringify(data));
-    // kuuluukohan tän olla tässä vai aiemmin ja tähänkö rakennan taulukon?
-    res.send("username=" + username + " country=" + country + "message=" + message);
+    data.push({
+        "id": data.length + 1,
+        "username": req.body.username,
+        "country": req.body.country,
+        "date": new Date(),
+        "message": req.body.message
     });
-
-
-
-//AJAX CALL
- /*   xmlhttp.open("POST", "/ajaxmessage", true);
-    //Mikalla oli ensin application/json, sit vaihdoin alla olevan x-www...
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    };
+    /*
+        var id = data.length + 1;
+        var username = req.body.username + "\n";
+        var country = req.body.country + "\n";
+        var date = Date();
+        var message = req.body.message + "\n";
 */
-    // YMMÄRTÄISIN ETTÄ TÄÄ KORVAA YLLÄ OLEVAN NODESSA Route for form
-
-    //SIIRSIN TÄÄLTÄ NY KAIKKI HTML_ÄÄN
-
 //Convert JSON object to string format
-//var jsonStr = JSON.stringify(data);    
-
-//mä en tiiä mitä tohon dataan kuuluu laittaa
+var jsonStr = JSON.stringify(data);
 
 
+//Parse the results into a variable
+     results = '<table>';
 
+    for (var i = 0; i < data.length; i++) {
+          results +=
+          '<tr>' +
+              '<td>' + data[i].id + '</td>' +
+              '<td>' + data[i].username + '</td>' +
+              '<td>' + data[i].country + '</td>' +
+              '<td>' + data[i].date + '</td>' +
+              '<td>' + data[i].message + '</td>' +
+          '</tr>';
+    }
 
-/*Write data to a file MUUTA TÄTÄ NIIN ETTEI OO IHAN SAMA KU NEW MESSAGE, MITEN?
-fs.writeFile('./public/data/data.json', jsonStr, (err) => {
-    if (err) throw err;
-    console.log('Mission accomplished.');
+          console.log(results);
+
+    res.send(results);
 });
-*/
-// res.send("I have successfully saved your message and the world.");    
-
-//tän sendin tilalle nyt sit varmaan joku taulukko 
- //   res.send("You send us a message!" + id + username + country + date + message);
-
+    
 
 //-----------------------ERROR------------------------------------------
 //Error-setti

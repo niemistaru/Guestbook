@@ -26,8 +26,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navi">
   <div class="container-fluid">
     <a class="navbar-brand" href="/"><img src=Kuvat/logo.png alt="Book club logo" width="80"></a>
-    <!--voikohan tän alla olevan poistaa kokonaan, siinä oli Navbar-teksti-->
-    <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,7 +40,7 @@
   </div>
 </nav>
 
-<!------------------------KOPIOITU SUORAAN NEW MESSAGE, MUOKKAA AJAXIIN---------------------------------->
+<!------------------------FORM---------------------------------->
     <div class="form">
       <h1 class="paaotsikko" id="newM">New Message</h1>
       <p>Please leave a message to our magnificent guestbook</p>
@@ -53,7 +51,6 @@
                     <input type="username" class="form-control" name="username" id="inputUsername" required>
                   </div>
                 </div>
-                <!--Taru, inputilla ja labelilla on nyt samat id:t, onks ok? alkup.bootsrapis oli niin -->
                 <div class="row mb-3">
                   <label for="inputCountry" class="col-sm-2 col-form-label">Country</label>
                   <div class="col-sm-10">
@@ -69,9 +66,20 @@
     </div>
 
     <!-------------AJAX-VASTAUS---------->
-    <div class="messages">
-
+    <div id="messages">
+        <table class="table table-info table-striped-columns" id="table1">
+            <thead>
+                <tr class="table-info">
+                    <th scope="col" class="table-info" data-field="id">#</th>
+                    <th scope="col" class="table-info" data-field="username">Username</th>
+                    <th scope="col" class="table-info" data-field="country">Country</th>
+                    <th scope="col" class="table-info" data-field="date">Date</th>
+                    <th scope="col" class="table-info" data-field="message">Message</th>
+                </tr>
+            </thead>   
+        </table>    
     </div>
+
     <script>
         window.onload = event => {
            var button = document.getElementById("button1");
@@ -81,24 +89,31 @@
         var username = document.getElementById("inputUsername").value;
         var country = document.getElementById("inputCountry").value;
         var message = document.getElementById("inputMessage").value;
-//tähän oikeesti joku, joka tulostaa ne siihen sivulle
-        console.log(username, country, message);
+
+        console.log("You wrote<. ", username, country, message);
+
+    
 //AJAX OBJECT
     var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-            //Returned data to html
-            document.getElementById("messages").innerHTML =this.responseText;
+      
+        //Returned data to html
+        document.getElementById("table1").innerHTML = this.responseText;
             console.log(this.responseText);    
             }
         };
-   
+
+    //AJAX CALL
+    xmlhttp.open("POST", "/ajaxmessage", true);
+    //Add input fields from form
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send("username=" + username + "country=" + country + "message=" + message);
     });
-        }
-    </script>
-   <!-- <script src="index.js"> LAITOIN PIILOON, KU HERJAS-->
+    };
 
     </script>
+
 
    <!--BOOTSTRAP-->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
