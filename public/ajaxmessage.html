@@ -42,7 +42,7 @@
   </div>
 </nav>
 
-<!------------------------LOMAKE-POHJA---------------------------------->
+<!------------------------KOPIOITU SUORAAN NEW MESSAGE, MUOKKAA AJAXIIN---------------------------------->
     <div class="form">
       <h1 class="paaotsikko" id="newM">New Message</h1>
       <p>Please leave a message to our magnificent guestbook</p>
@@ -62,13 +62,43 @@
                 </div>
                 <div class="input-group" id="messageField">
                   <span class="input-group-text">Message</span>
-                  <textarea class="form-control" aria-label="Message" name="message" required></textarea>
+                  <textarea class="form-control" id="inputMessage" aria-label="Message" name="message" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-info" id="submitMessage">Submit</button>    
+                <button type="button" id="button1" class="btn btn-info" id="ajaxMessage">Submit</button>    
               </form>
-
     </div>
 
+    <!-------------AJAX-VASTAUS---------->
+    <div class="messages">
+
+    </div>
+    <script>
+        window.onload = event => {
+           var button = document.getElementById("button1");
+
+/*Add event listener to the button*/       
+    button.addEventListener("click", () => {
+        var username = document.getElementById("inputUsername").value;
+        var country = document.getElementById("inputCountry").value;
+        var message = document.getElementById("inputMessage").value;
+//tähän oikeesti joku, joka tulostaa ne siihen sivulle
+        console.log(username, country, message);
+//AJAX OBJECT
+    var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            //Returned data to html
+            document.getElementById("messages").innerHTML =this.responseText;
+            console.log(this.responseText);    
+            }
+        };
+   
+    });
+        }
+    </script>
+   <!-- <script src="index.js"> LAITOIN PIILOON, KU HERJAS-->
+
+    </script>
 
    <!--BOOTSTRAP-->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

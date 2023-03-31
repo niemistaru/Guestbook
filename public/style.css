@@ -193,7 +193,7 @@
 #messageField {
     min-height: 150px;
 }
-#submitMessage{
+#submitMessage, #button1{
     margin-top: 10px;
 }
 

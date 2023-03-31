@@ -7,6 +7,7 @@ var app = express();
 var bodyParser = require('body-parser');
 const { json } = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 //Port
 const PORT = process.env.PORT || 3000;
@@ -103,10 +104,70 @@ fs.writeFile('./public/data/data.json', jsonStr, (err) => {
 res.send("I have successfully saved your message and the world.");    
 });
 
+
 //----------------------AJAX--------------------------------------------
+
+//Serve a fom to the user
 app.get('/ajaxmessage', function(req, res) {
-    res.send('Litti on kingi ja Kluivert on kurko');
+    res.sendFile(__dirname + '/public/ajaxmessage.html');
 });
+
+    //KUULUISKO YLLÄ OLEVIEN OLLA VASTA ALMEPANA??
+
+//SIIRSIN NÄMÄ JUST TÄNNE MINÄ EN TIEDÄ MISSÄ JÄKRÄSSÄ NÄIDEN KUULUU OLLA HÄ
+//nodeen ei saa window'ta määritettyä ni mä nyt kokeilen jotain ihan muuta ku en tajuu. eli laitan piiloon
+/*
+
+    
+*/
+app.post('/ajaxmessage', function(req, res) {
+
+    var data = require(__dirname + '/public/data/data.json');
+    console.log(req.body);
+    var id= data.length + 1;
+    var username= req.body.username;
+    var country= req.body.country;
+    var date= new Date();
+    var message= req.body.message;
+
+    //Convert JSON object to string format
+    var jsonStr = JSON.stringify(data);
+    //Send variable as string
+    res.send(JSON.stringify(data));
+    // kuuluukohan tän olla tässä vai aiemmin ja tähänkö rakennan taulukon?
+    res.send("username=" + username + " country=" + country + "message=" + message);
+    });
+
+
+
+//AJAX CALL
+ /*   xmlhttp.open("POST", "/ajaxmessage", true);
+    //Mikalla oli ensin application/json, sit vaihdoin alla olevan x-www...
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    };
+*/
+    // YMMÄRTÄISIN ETTÄ TÄÄ KORVAA YLLÄ OLEVAN NODESSA Route for form
+
+    //SIIRSIN TÄÄLTÄ NY KAIKKI HTML_ÄÄN
+
+//Convert JSON object to string format
+//var jsonStr = JSON.stringify(data);    
+
+//mä en tiiä mitä tohon dataan kuuluu laittaa
+
+
+
+
+/*Write data to a file MUUTA TÄTÄ NIIN ETTEI OO IHAN SAMA KU NEW MESSAGE, MITEN?
+fs.writeFile('./public/data/data.json', jsonStr, (err) => {
+    if (err) throw err;
+    console.log('Mission accomplished.');
+});
+*/
+// res.send("I have successfully saved your message and the world.");    
+
+//tän sendin tilalle nyt sit varmaan joku taulukko 
+ //   res.send("You send us a message!" + id + username + country + date + message);
 
 
 //-----------------------ERROR------------------------------------------
@@ -119,3 +180,4 @@ app.get("*", function (req, res) {
 app.listen(PORT, function() {
     console.log('Server is listening to port ' + PORT);
 });
+
