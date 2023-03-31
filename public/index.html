@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guestbook</title>
-<!---BOOTSRAP-LINKSA TÄSSÄ-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
- 
- <!--OMAT TYYLIT TÄMÄN ALLE-->
-<link rel="stylesheet" href="style.css" type="text/css">
+    <title>Smagardi</title>
+
+  <!--------------BOOTSRAP-LINKSA --------------->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+  <!-----------OMAT TYYLIT---------------->
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <!----------FONTIT------------------------->
+  <!--Fontit-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    <!---------------NAVIGAATIO----------------------------->
+<!---------------NAVIGAATIO--TARU PÄIVITÄ TÄÄ VERSIO MUILLEKIN SIUILLE--------------------------->
     <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navi">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html"><img src=booklogo.png alt="Guestbook logo" width="80"></a>
+          <a class="navbar-brand" href="/"><img src=Kuvat/logo.png alt="Guestbook logo" width="80"></a>
           <!--voikohan tän alla olevan poistaa kokonaan, siinä oli Navbar-teksti-->
           <a class="navbar-brand" href="#"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,31 +34,29 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-              <a class="nav-link" href="guestbook.html">Guestbook</a>
-              <a class="nav-link" href="newmessage.html">New Message</a>
-              <a class="nav-link disabled">Ajax</a>
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" href="/guestbook">Guestbook</a>
+              <a class="nav-link" href="/newmessage">New Message</a>
+              <a class="nav-link" href="">Ajax</a>
             </div>
           </div>
         </div>
     </nav>
 
-<!----------------MAIN------------------------------------->
-  
-  
-    <!---TÄSTÄ ALKAA SMAGGEKOODI----------------------------------------------->
-<!--HEDARI-->
+
+
+<!-------------------HEDARI----------------------------->
 <header class="kuvahedari">
   <h1 class="hedarifontti">SMAGARDI</h1>
 </header>
 
-<!---MAINTSYDEEMI-->
+<!-----------------------MAIN----------------------------->
 <div id="page-container">
     <main>
 
       <div class="container">
-        <h1 class="paaotsikko">Kirja-arviot</h1>
-        <p class="ingressi">Eli mitä me tykkäämme tai emme tykkää.</p>
+        <h1 class="paaotsikko">Book Club for kids who can't read good and who wanna learn to do other stuff good too</h1>
+        <p class="ingressi">These books we actually managed to read.</p>
 
         <div class="row">
           <div class="col-sm-12 col-lg-6">
@@ -141,7 +150,7 @@
           <h2 class="arvio-otsikko">Jennifer Clement: Rakkaudesta aseisiin</h2>
           <p class="arvioteksti">Päivä oli jo niin matalalla kuin ennen muinoin Turussa siihen aikaan, jolloin tyhjät punssitynnyrit vappukentällä kehottivat meitä ajattelemaan kotimatkaa, mutta minulla oli vielä puolentoista peninkulman matka Hämeenlinnaan. Vaikka olinkin väsynyt, kuljin kuitenkin pysähtymättä noin peninkulman matkan ja olisin varmaankin poikennut johonkin talonpoikaistaloon yöksi, ellen kievarinisännän vuoksi olisi ollut suuttunut jokikiseen talonpoikaan. Sitäpaitsi oli tulet jo sammutettu niissä paikoin, joiden ohitse tieni kulki, ja pelkäsin että minua olisi voitu luulla rosvoksi, jos noin yöllä olisin kolkuttanut heidän ovelleen. Sinun tulee muistaa, että tämän seudun kyliä senlaiset vieraat joskus käyvät tervehtimässä. Pitikö minun siis mennä kaupunkiin? Mutta kuka siellä keskellä yötä antaisi minulle majaa?</p>
           <br>
-          <p class="arvioteksti">[Ote Elias önnrotin matkapäiväkirjasta 1828 (suom. J. Hahl)]</p>
+          <p class="arvioteksti">[Ote Elias önnrotin matkapäiväkirjasta 1828, suom. J. Hahl]</p>
         </div>
         <div class="col-sm-12 col-lg-6">
           <img class="arviokuva" src="Kuvat/clement.jpg" alt="Rakkaudesta aseisiin">
@@ -150,12 +159,12 @@
 
     </main>
   
-
+<!-----------SIVUPALKKI------------------------------------->
     <aside class="sivupalkki">
-      <h5 class="ehdokasotsikko">Kirjaehdokkaat</h5>
+      <h5 class="ehdokasotsikko">Reading list</h5>
       <img class="marginauto" src="Kuvat/smagardi.png" alt="Smagge" width="40">
 
-      <p class="asideteksti">Seuraavaksi aiomme jättää lukematta:</p>
+      <p class="asideteksti">Maybe next we should not finish these books:</p>
       <ul class="smaggelista">
         <li class="pikkuli">Platon: Valtio</li>
         <li class="pikkuli">Virginia Woolf: Mrs Dolloway</li>
@@ -171,18 +180,15 @@
     </aside>
   </div>
    <footer>
-  <p class="footerteksti"> Emme vastaa mistään. Mitään.
+  <p class="footerteksti"> All rights reserved... a table at a near restaurant.
   </p>
 </footer>
 
 
 
 
-
-
-
   
-    <!--BOOTSTRAP-->
+    <!------------BOOTSTRAP------------------->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   
 </body>

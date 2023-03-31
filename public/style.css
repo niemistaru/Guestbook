@@ -1,3 +1,96 @@
+/*NAVI*/
+#navi {
+    background-color: #950E9F !important;
+}
+
+
+/*INDEX*/
+ body {
+    background-color: #C688CB; 
+}
+
+/********TARU MUOKKAA TÄTÄ, TÄÄ SE ALKUPERÄINEN, LAITA ID ETTÄ OSUU NEW MESSAGEEN OIKEIN (alla smagge-h1)*/
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    
+}
+
+.hedarifontti {
+    font-family: 'Oswald', sans-serif;
+    font-size: 64px;
+    border-bottom: 13px solid #011638;
+    letter-spacing: 5px;
+  }
+  .alahedari {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    border-bottom: 13px solid #011638;
+    letter-spacing: 5px;
+  }
+  .kuvahedari {
+    background: url(Kuvat/hedari2.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    color: #011638;
+    text-align: left;
+    border-bottom: 36px solid #011638;
+  }
+
+  .kuvahommelit {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+  }
+  .marginauto {
+    margin: 10px auto 20px;
+    display: block;
+  }
+  
+  header {
+    width: 100%;
+    padding: 25px;
+  }
+  main {
+    background-color: #C688CB;
+    color: #011638;
+    width: 75%;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'BioRhyme', serif;
+    text-align: left;
+  }
+  p {
+    font-family: 'Space Mono', monospace;
+  }
+  .pikkuli {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    margin-bottom: 14px;
+    text-align: left;
+    color: #b8c5d6;
+    list-style-type: none;
+  }
+  .smaggelista {
+    font-family: 'Space Mono', monospace;
+    text-align: justify;
+  }
+  li {
+    margin-bottom: 12px;
+    text-align: left;
+    font-family: 'Space Mono', monospace;
+  }
+  
+  a {
+    color: #b8c5d6;
+  }
+  a:hover {
+    color: #ffffff;
+  }
+
+
 .paaotsikko {
     margin-top: 30px;
     margin-bottom: 45px;
@@ -37,7 +130,43 @@
     margin-bottom: 1.5rem;
     text-align: center;
   }
+
+  /*******************SMAGGE-SIVUPALKKI***********/
+  .sivupalkki {
+    float: right;
+    width: 25%;
+    background-color: #2e294e;
+    color: #b8c5d6;
+    padding: 20px;
+  }
+  .asideotsikko {
+    font-size: 17px;
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    text-align: center;
+  }
+  .asideteksti {
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 14px;
+  }
+  .kirjoi {
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  }
   
+  #page-container {
+      display: flex;
+      flex-wrap: wrap;
+  }
+  
+    @media only screen and (max-width: 600px) {
+        main, .sivupalkki {width: 100%;}
+    }
+  
+
+
   /*************************SMAGGE-FOOTER**************************/
   footer {
     background-color: #011638;
@@ -50,47 +179,8 @@
   }
   
   
-  /*INDEX*/
-body {
-    background-color: #C688CB; 
-}
-h1 {
-    text-align: center;
-    margin-top: 30px;
-    
-}
-
-/*---------------SMAGARDI-KOODI--------------------------*/
-.hedarifontti {
-    font-family: 'Oswald', sans-serif;
-    font-size: 64px;
-    border-bottom: 13px solid #011638;
-    letter-spacing: 5px;
-  }
-  .kuvahedari {
-    background: url(Kuvat/hedari2.jpg);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    color: #011638;
-    text-align: left;
-    border-bottom: 36px solid #011638;
-  }
-
-
-
-
-
-/*NAVI*/
-#navi {
-    background-color: #950E9F !important;
-    margin-bottom: 40px;
-}
-
-
-
-/* NEW MESSAGE*/
+ 
+/********************** NEW MESSAGE**************************/
 .form {
     text-align: center;
     margin-left: 10%;
@@ -108,7 +198,7 @@ h1 {
     margin-top: 10px;
 }
 
-/*  GUESTBOOK  */
+/*************************  GUESTBOOK***********************/
 #table {
     padding: 20px; 
 }
