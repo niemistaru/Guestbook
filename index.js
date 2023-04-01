@@ -24,10 +24,8 @@ app.get('/', function(req, res) {
 
 
 //------------GUESTBOOK----------------------------------
-//Siis pitäis olla mut ei viel oo: Serve browser an HTML table from a file
-//23.3. TARU JÄTÄ TÄÄ HETKEKSI, RAKENNA MUUT JA PALAA SIT TÄHÄN. EHKÄ SE SELVII.
+//Serve browser an HTML table from a file
 
-//No täl se pitäis tulla se taulukko?
 app.get('/guestbook', function(req, res) {
     res.sendFile(__dirname + '/public/guestbook.html');
       var data = require(__dirname + '/public/data/data.json');
@@ -37,17 +35,6 @@ app.get('/guestbook', function(req, res) {
 
       for (var i = 0; i < data.length; i++) {
             results +=
-
-            /*
-            '<tr>' +
-                '<th>' + data[i].id + '</th>' +
-                '<th>' + data[i].username + '</th>' +
-                '<th>' + data[i].country + '</th>' +
-                '<th>' + data[i].date + '</th>' +
-                '<th>' + data[i].message + '</th>' +
-            '</tr>';
-*/
-    //KOKEILIN TH-TÄGILLÄ YLLE - siitä tuli vain lihavoituna noi kaikki.
             '<tr>' +
                 '<td>' + data[i].id + '</td>' +
                 '<td>' + data[i].username + '</td>' +
