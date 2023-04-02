@@ -60,28 +60,28 @@ app.get('/newmessage', function(req, res) {
 //Route for form sending the POST data
 app.post('/newmessage', function (req, res) {
 // Load the existing data from a file
-var data = require(__dirname + '/public/data/data.json');
+    var data = require(__dirname + '/public/data/data.json');
 
 
-data.push({
-    "id": data.length + 1,
-    "username": req.body.username,
-    "country": req.body.country,
-    "date": Date(),
-    "message": req.body.message
-});
+    data.push({
+        "id": data.length + 1,
+        "username": req.body.username,
+        "country": req.body.country,
+        "date": Date(),
+        "message": req.body.message
+    });
 
 
-//Convert JSON object to string format
-var jsonStr = JSON.stringify(data);
+    //Convert JSON object to string format
+    var jsonStr = JSON.stringify(data);
 
 
-//Write data to a file
-fs.writeFile('./public/data/data.json', jsonStr, (err) => {
-    if (err) throw err;
-    console.log('Your message was saved.');
-});
-res.send("I have successfully saved your message. And the world.");
+    //Write data to a file
+    fs.writeFile('./public/data/data.json', jsonStr, (err) => {
+        if (err) throw err;
+        console.log('Your message was saved.');
+    });
+    res.send("I have successfully saved your message. And the world.");
 
 });
 
@@ -106,7 +106,7 @@ app.post('/ajaxmessage', function(req, res) {
     });
    
 //Convert JSON object to string format
-var jsonStr = JSON.stringify(data);
+    var jsonStr = JSON.stringify(data);
 
 //Parse the results into a variable
      results = '<table>';
@@ -122,11 +122,18 @@ var jsonStr = JSON.stringify(data);
           '</tr>';
     }
 
-          console.log(results);
+        console.log(results);
 
     res.send(results);
+
+//Write data to a file
+    fs.writeFile('./public/data/data.json', jsonStr, (err) => {
+        if (err) throw err;
+        console.log('Your message was saved.');
+    });
 });
-    
+
+
 
 //-----------------------ERROR------------------------------------------
 
