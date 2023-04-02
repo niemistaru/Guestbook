@@ -11,42 +11,44 @@ app.use(bodyParser.json());
 
 //Port
 const PORT = process.env.PORT || 3000;
-//var http = require('http');
 
 
+//-------------FRONT PAGE-----------------------------------
 //Sisällöt public-hakemiston alta
 app.use(express.static('./public'));
 
-//-------------FRONT PAGE-----------------------------------
+
 app.get('/', function(req, res) {
-    res.send('This is lovely');
+ res.sendFile(__dirname + '/public/index.html');
 });
 
 
 //------------GUESTBOOK----------------------------------
 //Serve browser an HTML table from a file
-
 app.get('/guestbook', function(req, res) {
-    res.sendFile(__dirname + '/public/guestbook.html');
-      var data = require(__dirname + '/public/data/data.json');
+ res.sendFile(__dirname + '/public/guestbook.html');
 
+    var data = require(__dirname + '/public/data/data.json');
+      
 //Parse the results into a variable
-      var results = '<table>';
+      var results = '<table border="1">';
 
       for (var i = 0; i < data.length; i++) {
             results +=
-            '<tr>' +
-                '<td>' + data[i].id + '</td>' +
-                '<td>' + data[i].username + '</td>' +
-                '<td>' + data[i].country + '</td>' +
-                '<td>' + data[i].date + '</td>' +
-                '<td>' + data[i].message + '</td>' +
-            '</tr>';
+                '<tr>' +
+                    '<td>' + data[i].id + '</td>' +
+                    '<td>' + data[i].username + '</td>' +
+                    '<td>' + data[i].country + '</td>' +
+                    '<td>' + data[i].date + '</td>' +
+                    '<td>' + data[i].message + '</td>' +
+                '</tr>';    
     
     }
-      
+   
     res.send(results);
-    });
+   
+});
+
 
 
 //----------------------NEW MESSAGE-------------------------------------
@@ -65,7 +67,7 @@ data.push({
     "id": data.length + 1,
     "username": req.body.username,
     "country": req.body.country,
-    "date": new Date(),
+    "date": Date(),
     "message": req.body.message
 });
 
@@ -77,11 +79,11 @@ var jsonStr = JSON.stringify(data);
 //Write data to a file
 fs.writeFile('./public/data/data.json', jsonStr, (err) => {
     if (err) throw err;
-    console.log('This is the way.');
+    console.log('Your message was saved.');
 });
-res.send("I have successfully saved your message and the world.");    
-});
+res.send("I have successfully saved your message. And the world.");
 
+});
 
 //----------------------AJAX--------------------------------------------
 
@@ -97,21 +99,14 @@ app.post('/ajaxmessage', function(req, res) {
     console.log(req.body);
     data.push({
         "id": data.length + 1,
-        "username": req.body.username,
-        "country": req.body.country,
+        "username": req.body.username + "\n",
+        "country": req.body.country + "\n",
         "date": new Date(),
         "message": req.body.message
     });
-    /*
-        var id = data.length + 1;
-        var username = req.body.username + "\n";
-        var country = req.body.country + "\n";
-        var date = Date();
-        var message = req.body.message + "\n";
-*/
+   
 //Convert JSON object to string format
 var jsonStr = JSON.stringify(data);
-
 
 //Parse the results into a variable
      results = '<table>';
@@ -134,9 +129,9 @@ var jsonStr = JSON.stringify(data);
     
 
 //-----------------------ERROR------------------------------------------
-//Error-setti
+
 app.get("*", function (req, res) {
-    res.status(404).send("Nyt ei kyllä tällaista löydy ollenkaan");
+    res.status(404).send("Page not found");
 });
 
 //-----------------------PORT--------------------------------------------
